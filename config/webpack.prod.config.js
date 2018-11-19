@@ -9,33 +9,30 @@ const Visualizer = require('webpack-visualizer-plugin');
 const baseConfig = require('./webpack.base.config');
 
 const prodConfiguration = env => {
-  return merge([
-    {
-      optimization: {
-        // runtimeChunk: 'single',
-        // splitChunks: {
-        //   cacheGroups: {
-        //     vendor: {
-        //       test: /[\\/]node_modules[\\/]/,
-        //       name: 'vendors',
-        //       chunks: 'all'
-        //     }
-        //   }
-        // },
-        minimizer: [new UglifyJsPlugin()],
-      },
-      plugins: [
-        new MiniCssExtractPlugin({
-              filename: '[name].[hash].css',
-              chunkFilename: '[id].[hash].css',
-        }),
-        new OptimizeCssAssetsPlugin(), // 压缩生成的 css
-        new Visualizer({ filename: './statistics.html' })
-      ],
-    },
-  ]);
+    return merge([
+        {
+            optimization: {
+                // runtimeChunk: 'single',
+                // splitChunks: {
+                //   cacheGroups: {
+                //     vendor: {
+                //       test: /[\\/]node_modules[\\/]/,
+                //       name: 'vendors',
+                //       chunks: 'all'
+                //     }
+                //   }
+                // },
+                minimizer: [new UglifyJsPlugin()],
+            },
+            plugins: [
+                new MiniCssExtractPlugin(),
+                new OptimizeCssAssetsPlugin(), // 压缩生成的 css
+                new Visualizer({ filename: './statistics.html' })
+            ],
+        },
+    ]);
 }
 
 module.exports = env => {
-  return merge(baseConfig(env), prodConfiguration(env));
+    return merge(baseConfig(env), prodConfiguration(env));
 }
