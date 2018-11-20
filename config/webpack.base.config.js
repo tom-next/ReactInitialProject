@@ -25,10 +25,7 @@ module.exports = env => {
                     {
                         test: /\.scss$/,
                         use: [
-                            PLATFORM === 'production' ? new MiniCssExtractPlugin({
-                                filename: '[name].css',
-                                chunkFilename: '[id].css'
-                            }) : 'style-loader',
+                            PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                             {
                                 loader: "css-loader",
                                 options: {
