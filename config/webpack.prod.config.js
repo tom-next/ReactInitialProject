@@ -25,7 +25,10 @@ const prodConfiguration = env => {
                 minimizer: [new UglifyJsPlugin()],
             },
             plugins: [
-                new MiniCssExtractPlugin(),
+                new MiniCssExtractPlugin({
+                    filename: '[name].[hash].css',
+                    chunkFilename: '[id].[hash].css',
+                }),
                 new OptimizeCssAssetsPlugin(), // 压缩生成的 css
                 new Visualizer({ filename: './statistics.html' })
             ],

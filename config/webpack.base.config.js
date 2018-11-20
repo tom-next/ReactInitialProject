@@ -13,6 +13,10 @@ module.exports = env => {
     return merge([
         {
             entry: ['@babel/polyfill', APP_DIR],
+            output: {
+                path: path.join(__dirname, 'dist'),
+                filename: '[name].[hash].js'
+            },
             module: {
                 rules: [
                     {
