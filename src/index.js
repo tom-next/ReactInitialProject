@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import * as  styles from './myStyles.scss';
+import * as  styles from './myStyles.less';
 import headerUrl from './static/images/header.jpeg'
  
 const App = () => {

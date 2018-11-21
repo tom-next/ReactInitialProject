@@ -26,8 +26,43 @@ module.exports = env => {
                             loader: 'babel-loader'
                         }
                     },
+                    // {
+                    //     test: /\.less$/,
+                    //     use: [
+                    //         'style-loader',
+                    //         {
+                    //             loader: 'css-loader',
+                    //             options: {
+                    //                 modules: true,
+                    //                 importLoaders: 1,
+                    //                 // localIndetName: '[name]__[local]__[hash:base64:5]',
+                    //                 localIdentName: '[local]__[hash:base64:5]'
+                    //                 // localIndetName: "[name]__[local]___[hash:base64:5]"
+                    //             }
+                    //         },
+                    //         // 'css-loader',
+                    //         {
+                    //             loader: 'postcss-loader',
+                    //             options: {
+                    //                 ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                    //                 plugins: () => [
+                    //                    require('autoprefixer')({
+                    //                         browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
+                    //                     }),
+                    //                     require('postcss-pxtorem')({ rootValue: 100, propWhiteList: [] })
+                    //                 ]
+                    //             }
+                    //         },
+                    //         {
+                    //             loader: require.resolve('less-loader'),
+                    //             options: {
+                    //                 modifyVars: { '@primary-color': '#1DA57A' }
+                    //             }
+                    //         }
+                    //     ]
+                    // },
                     {
-                        test: /\.scss$/,
+                        test: /\.less$/,
                         use: [
                             PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                             {
@@ -38,9 +73,36 @@ module.exports = env => {
                                     localIdentName: "[local]___[hash:base64:5]"
                                 }
                             },
-                            'sass-loader'
+                            {
+                               loader: "postcss-loader",
+                               options: {
+                                    ident: 'postcss',
+                                    plugins: () => [
+                                            require('autoprefixer')({
+                                                browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
+                                            }),
+                                            require('postcss-pxtorem')({ rootValue: 100, propWhiteList: [] })
+                                        ]
+                               } 
+                            },
+                            'less-loader'
                         ]
                     },
+                    // {
+                    //     test: /\.scss$/,
+                    //     use: [
+                    //         PLATFORM === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+                    //         {
+                    //             loader: "css-loader",
+                    //             options: {
+                    //                 sourceMap: true,
+                    //                 modules: true,
+                    //                 localIdentName: "[local]___[hash:base64:5]"
+                    //             }
+                    //         },
+                    //         'sass-loader'
+                    //     ]
+                    // },
                     {
                         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                         loader: 'url-loader',
