@@ -36,7 +36,7 @@ module.exports = env => {
         {
             entry: ['@babel/polyfill', APP_DIR],
             output: {
-                path: path.join(__dirname, 'dist'),
+                path: path.join(__dirname, '../dist'),
                 filename: '[name].[hash].js'
             },
             module: {
