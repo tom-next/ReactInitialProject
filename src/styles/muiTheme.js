@@ -11,6 +11,7 @@ export default {
   },
   margin: 15,
   typography: {
+      useNextVariants: true,  
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
@@ -42,14 +43,14 @@ export default {
       marginLeft: '-.04em',
       color: 'rgba(0, 0, 0, 0.54)',
     },
-    display1: {
-      fontSize: '2.125rem',
-      fontWeight: 400,
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.20588em',
-      marginLeft: '-.04em',
-      color: 'rgba(0, 0, 0, 0.54)',
-    },
+    // display1: {
+    //   fontSize: '2.125rem',
+    //   fontWeight: 400,
+    //   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    //   lineHeight: '1.20588em',
+    //   marginLeft: '-.04em',
+    //   color: 'rgba(0, 0, 0, 0.54)',
+    // },
     headline: {
       fontSize: '1.5rem',
       fontWeight: 400,

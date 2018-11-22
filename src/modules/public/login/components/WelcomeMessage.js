@@ -21,7 +21,7 @@ const styles = theme => ({
 const WelcomeMessage = ({ classes }) => {
   return (
     <Fragment>
-      <Typography variant="display1" gutterBottom className={classes.heading}>
+      <Typography variant="h4" gutterBottom className={classes.heading}>
         Welcome To
       </Typography>
       <img src="/images/logo.png" alt="app logo" className={classes.logo} />

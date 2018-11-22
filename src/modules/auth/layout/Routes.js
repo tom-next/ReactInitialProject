@@ -28,7 +28,7 @@ const Routes = ({ match, location }) => (
   <Transition>
     <CSSTransition key={location.key} classNames="fade" timeout={300}>
       <Switch>
-        <Route exact path={`${match.url}`} component={UserPage} />
+        <Route exact path={`${match.url}`} component={() => <div>hi</div>} />
         <Route exact path={`${match.url}/user`} component={UserPage} />
       </Switch>
     </CSSTransition>

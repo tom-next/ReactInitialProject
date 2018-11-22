@@ -16,29 +16,29 @@ const Routes = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/login" />} />
+        <Route exact path="/" component={() => <Redirect to="/login" />} />
         <Route
           exact
           path="/login"
-          render={props => {
+          component={props => {
             return APP_TOKEN.notEmpty ? <Redirect to="/auth" /> : <LoginPage {...props} />;
           }}
         />
         <Route
           path="/auth"
-          render={props => {
+        component={props => {
             // return APP_TOKEN.notEmpty ? <AuthLayout {...props} /> : <Redirect to="/login" />;
             return <AuthLayout {...props} />;
           }}
         />
-        <Route component={NoMatchPage} />
+        {/* <Route component={NoMatchPage} /> */}
       </Switch>
     </Suspense>
   );
 };
 
 Routes.propTypes = {
-  location: PropTypes.object, // React Router Passed Props
+    location: PropTypes.object, // React Router Passed Props
 };
 
 export default Routes;

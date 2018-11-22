@@ -44,7 +44,7 @@ const MainLayout = ({ classes }) => {
     <div className={classes.root}>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Route render={props => <Routes {...props} />} />
+              <Route render={props => <Routes {...props} />} />
       </main>
     </div>
   );
